@@ -32,6 +32,16 @@ public:
 		return _MeshComponent;
 	}
 
+	UPROPERTY(EditAnywhere, Category = "Food")
+		float CookTime;
+
+	UFUNCTION(BlueprintCallable, Category = "Food")
+		void OnHit();
+
+	UFUNCTION(BlueprintCallable, Category = "Food")
+		void CookTimeTimer();
+
+	FTimerHandle CookTimeTimerHandle;
 
 protected:
 	// Called when the game starts or when spawned
