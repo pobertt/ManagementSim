@@ -32,7 +32,7 @@ public:
 		return _MeshComponent;
 	}
 
-	UPROPERTY(EditAnywhere, Category = "Food")
+	UPROPERTY(VisibleAnywhere, Category = "Food")
 		float CookTime;
 
 	UFUNCTION(BlueprintCallable, Category = "Food")
