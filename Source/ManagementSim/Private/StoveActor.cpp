@@ -1,10 +1,10 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "IngredientsActor.h"
+#include "StoveActor.h"
 
 // Sets default values
-AIngredientsActor::AIngredientsActor()
+AStoveActor::AStoveActor()
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
@@ -16,37 +16,15 @@ AIngredientsActor::AIngredientsActor()
 	_MeshComponent->SetupAttachment(_BoxComponent);
 }
 
-
-void AIngredientsActor::OnHit()
-{
-	
-	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, FString::FormatAsNumber(CookTime));
-	CookTime = CookTime - 1;
-
-	if (CookTime < 5 && CookTime > 0)
-	{
-		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, "Cooked");
-	}
-	else if (CookTime < 0) 
-	{
-		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, "Burned");
-	}
-}
-
-void AIngredientsActor::CookTimeTimer()
-{
-	CookTime = CookTime - 1;
-}
-
 // Called when the game starts or when spawned
-void AIngredientsActor::BeginPlay()
+void AStoveActor::BeginPlay()
 {
 	Super::BeginPlay();
 	
 }
 
 // Called every frame
-void AIngredientsActor::Tick(float DeltaTime)
+void AStoveActor::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
