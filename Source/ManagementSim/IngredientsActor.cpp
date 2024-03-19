@@ -14,6 +14,10 @@ AIngredientsActor::AIngredientsActor()
 
 	_MeshComponent = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Static Mesh"));
 	_MeshComponent->SetupAttachment(_BoxComponent);
+
+	Cooked = false;
+
+	Burned = false;
 }
 
 
@@ -23,13 +27,15 @@ void AIngredientsActor::OnHit()
 	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, FString::FormatAsNumber(CookTime));
 	CookTime = CookTime - 1;
 
-	if (CookTime < 5 && CookTime > 0)
+	if (CookTime < 10 && CookTime > 0)
 	{
 		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, "Cooked");
+		Cooked = true;
 	}
 	else if (CookTime < 0) 
 	{
 		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, "Burned");
+		Burned = true;
 	}
 }
 
