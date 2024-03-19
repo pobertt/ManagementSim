@@ -35,6 +35,12 @@ public:
 	UPROPERTY(VisibleAnywhere, Category = "Food")
 		float CookTime;
 
+	UPROPERTY(VisibleAnywhere, Category = "Food")
+		bool Cooked;
+
+	UPROPERTY(VisibleAnywhere, Category = "Food")
+		bool Burned;
+
 	UFUNCTION(BlueprintCallable, Category = "Food")
 		void OnHit();
 
