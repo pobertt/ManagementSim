@@ -35,7 +35,7 @@ void AIngredientsActor::OnHit()
 	else if (CookTime < 0) 
 	{
 		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, "Burned");
-		Burned = false;
+		Burned = true;
 	}
 }
 
