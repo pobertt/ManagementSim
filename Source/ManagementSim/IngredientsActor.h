@@ -6,6 +6,7 @@
 #include "GameFramework/Actor.h"
 #include "Components/BoxComponent.h"
 #include "Components/StaticMeshComponent.h"
+#include "Math/UnrealMathUtility.h"
 #include "IngredientsActor.generated.h"
 
 UCLASS()
@@ -41,8 +42,17 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Food")
 		bool Burned;
 
-	UFUNCTION(BlueprintCallable, Category = "Food")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Other")
+		float Annoyance;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Other")
+		float tempAnnoyance;
+
+	UFUNCTION(BlueprintCallable, Category = "Other")
 		void OnHit();
+
+	UFUNCTION(BlueprintCallable, Category = "Other")
+		void Kill();
 
 	UFUNCTION(BlueprintCallable, Category = "Food")
 		void CookTimeTimer();
@@ -60,4 +70,5 @@ private:
 	
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Ingredients Component", meta = (AllowPrivateAccess = "true"))
 	UStaticMeshComponent* _MeshComponent;
+
 };

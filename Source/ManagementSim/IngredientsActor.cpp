@@ -36,7 +36,16 @@ void AIngredientsActor::OnHit()
 	{
 		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, "Burned");
 		Burned = true;
+
+		Kill();
 	}
+}
+
+void AIngredientsActor::Kill()
+{
+	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, "Kill called");
+	tempAnnoyance = Annoyance + 10;
+	Annoyance = FMath::Clamp(tempAnnoyance, 0, 100);
 }
 
 void AIngredientsActor::CookTimeTimer()
