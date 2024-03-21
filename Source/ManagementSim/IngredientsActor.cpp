@@ -23,18 +23,16 @@ AIngredientsActor::AIngredientsActor()
 
 void AIngredientsActor::OnHit()
 {
-	
-	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, FString::FormatAsNumber(CookTime));
 	CookTime = CookTime - 1;
 
 	if (CookTime < 10 && CookTime > 0)
 	{
-		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, "Cooked");
+		
 		Cooked = true;
 	}
 	else if (CookTime < 0) 
 	{
-		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, "Burned");
+		
 		Burned = true;
 
 		Kill();
@@ -43,7 +41,7 @@ void AIngredientsActor::OnHit()
 
 void AIngredientsActor::Kill()
 {
-	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, "Kill called");
+	
 	tempAnnoyance = Annoyance + 10;
 	Annoyance = FMath::Clamp(tempAnnoyance, 0, 100);
 }
